@@ -26,4 +26,25 @@
 
 */
 
-// Write your JavaScript here
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function countIndianCurrency(){
+
+    var money = "";
+    var total = 0;
+    var continueCounting = true;
+    for( var i = 0; i< arguments.length; i++){
+        money += arguments[i] + ", ";
+        if( arguments[i] % 5 == 0 && continueCounting){
+            total += arguments[i];
+        }else{
+            continueCounting = false;
+        }
+    }
+
+    changeElementText("#currencyNotes", money  );
+    changeElementText("#moneyTotal", total);
+
+}

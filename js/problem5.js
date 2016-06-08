@@ -34,3 +34,47 @@
  */
 
 // Write your JavaScript here
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+
+function reverseWrittenOrder( advertisement ){
+
+    changeElementText("#totalWordCount", countWords(advertisement));
+    changeElementText("#advertisingText", formatAdvertisement(advertisement));
+
+    advertisement[1] = reverseLine(advertisement[1]);
+
+    changeElementText("#correctAdvertisingText", formatAdvertisement(advertisement));
+}
+
+
+function formatAdvertisement(advertisement){
+    var str = "";
+    for(var i = 0; i < advertisement.length; i ++){
+        for(var j = 0; j < advertisement[i].length; j ++){
+            str += advertisement[i][j] + " ";
+        }
+    }
+    return str;
+}
+
+function reverseLine( line ){
+    for( var i = 0; i < line.length/2; i ++){
+        var str = line[i];
+        line[i] = line[ line.length -1 - i];
+        line[ line.length -1 - i] = str;
+    }
+    return line;
+}
+
+function countWords (advertisement){
+    var count = 0;
+    for(var i = 0; i < advertisement.length; i ++){
+        for(var j = 0; j < advertisement[i].length; j ++){
+            count += 1;
+        }
+    }
+    return count;
+ }
